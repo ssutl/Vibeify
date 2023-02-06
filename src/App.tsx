@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
+import PlaylistsPage from "./PlaylistsPage";
 import "./Styling/App.scss";
 
 function App() {
@@ -7,11 +10,12 @@ function App() {
       <div className="header">
         <h1>Splitify</h1>
       </div>
-      <div className="description">
-        <h2>Create Vibe Specific Playlists Fast</h2>
-      </div>
-      <div className="albumCovers"></div>
-      <div className="signIn"></div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/Playlists" element={<PlaylistsPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

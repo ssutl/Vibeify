@@ -1,82 +1,132 @@
+export type NameofVibes =
+  | "Sumn Mellow"
+  | "Sumn Uplifting"
+  | "Keep Going"
+  | "Sumn Cognitive"
+  | "Humbly Subtly"
+  | "Ever so, Ever So"
+  | "Sumn Organic"
+  | "Coasting in the PM";
+
+// export interface NameofVibes {
+//   // accousticness: SpotifyApi.TrackObjectFull[];
+//   // long: SpotifyApi.TrackObjectFull[];
+//   // energy: SpotifyApi.TrackObjectFull[];
+//   // instrumentalness: SpotifyApi.TrackObjectFull[];
+//   // // key: SpotifyApi.TrackObjectFull[];
+//   // liveness: SpotifyApi.TrackObjectFull[];
+//   // // loudness: SpotifyApi.TrackObjectFull[];
+//   // // mode: SpotifyApi.TrackObjectFull[];
+//   // speechiness: SpotifyApi.TrackObjectFull[];
+//   // // tempo: SpotifyApi.TrackObjectFull[];
+//   // // time_signature: SpotifyApi.TrackObjectFull[];
+//   // // valence: SpotifyApi.TrackObjectFull[];
+//   // danceability: SpotifyApi.TrackObjectFull[];
+// }
+
 export interface resultTemplate {
-  accousticness: SpotifyApi.TrackObjectFull[];
-  long: SpotifyApi.TrackObjectFull[];
-  energy: SpotifyApi.TrackObjectFull[];
-  instrumentalness: SpotifyApi.TrackObjectFull[];
-  // key: SpotifyApi.TrackObjectFull[];
-  liveness: SpotifyApi.TrackObjectFull[];
-  // loudness: SpotifyApi.TrackObjectFull[];
-  // mode: SpotifyApi.TrackObjectFull[];
-  speechiness: SpotifyApi.TrackObjectFull[];
-  // tempo: SpotifyApi.TrackObjectFull[];
-  // time_signature: SpotifyApi.TrackObjectFull[];
-  // valence: SpotifyApi.TrackObjectFull[];
-  danceability: SpotifyApi.TrackObjectFull[];
+  allVibes: { type: NameofVibes; tracks: SpotifyApi.TrackObjectFull[] }[];
 }
 
 export default function vibeSeperator(
   completeArray: SpotifyApi.TrackObjectFull[]
 ) {
   const result: resultTemplate = {
-    accousticness: [],
-    long: [],
-    energy: [],
-    instrumentalness: [],
-    // key: [],
-    liveness: [],
-    // loudness: [],
-    // mode: [],
-    speechiness: [],
-    // tempo: [],
-    // time_signature: [],
-    // valence: [],
-    danceability: [],
+    allVibes: [],
   };
 
   completeArray.forEach((track) => {
     const { audioFeatures } = track;
 
     if (audioFeatures !== undefined) {
-      if (audioFeatures.acousticness >= 0.8) {
-        result.accousticness.push(track);
-      }
-      if (audioFeatures.duration_ms >= 300000) {
-        result.long.push(track);
-      }
-      if (audioFeatures.energy >= 0.9) {
-        result.energy.push(track);
-      }
-      if (audioFeatures.danceability >= 0.9) {
-        result.danceability.push(track);
+      //Mellow Rap = tempo(slow) + Speechiness
+      if (audioFeatures.tempo <= 90 && audioFeatures.speechiness > 0.5) {
+        result.allVibes.find((each) => each.type === "Sumn Mellow")
+          ? result.allVibes
+              .find((each) => each.type === "Sumn Mellow")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Sumn Mellow", tracks: [track] });
       }
 
-      if (audioFeatures.instrumentalness >= 0.7) {
-        result.instrumentalness.push(track);
+      //Uplifting = Valence(High) + Danceability
+      if (audioFeatures.valence > 0.85 && audioFeatures.danceability > 0.8) {
+        result.allVibes.find((each) => each.type === "Sumn Uplifting")
+          ? result.allVibes
+              .find((each) => each.type === "Sumn Uplifting")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Sumn Uplifting", tracks: [track] });
       }
-      // if (audioFeatures.key >= 0.9) {
-      //   result.key.push(track);
-      // }
-      if (audioFeatures.liveness >= 0.7) {
-        result.liveness.push(track);
+
+      //Gym = Energy + Loudness + Tempo
+      if (audioFeatures.energy > 0.9 && audioFeatures.tempo > 120) {
+        result.allVibes.find((each) => each.type === "Keep Going")
+          ? result.allVibes
+              .find((each) => each.type === "Keep Going")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Keep Going", tracks: [track] });
       }
-      // if (audioFeatures.loudness >= 0.9) {
-      //   result.loudness.push(track);
-      // }
-      // if (audioFeatures.mode >= 0.9) {
-      //   result.mode.push(track);
-      // }
-      if (audioFeatures.speechiness >= 0.7) {
-        result.speechiness.push(track);
+
+      //Conscious deep ones = Speechiness + Valence(low) + tempo(slow)
+      if (
+        audioFeatures.valence < 0.4 &&
+        audioFeatures.tempo < 85 &&
+        audioFeatures.danceability < 0.5
+      ) {
+        result.allVibes.find((each) => each.type === "Sumn Cognitive")
+          ? result.allVibes
+              .find((each) => each.type === "Sumn Cognitive")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Sumn Cognitive", tracks: [track] });
       }
-      // if (audioFeatures.tempo >= 0.8) {
-      //   result.tempo.push(track);
-      // }
-      // if (audioFeatures.time_signature >= 3) {
-      //   result.time_signature.push(track);
-      // }
-      // if (audioFeatures.valence >= 0.8) {
-      //   result.valence.push(track);
-      // }
+
+      //Instrumental carries = Instrumentalness + Acousticness
+      if (audioFeatures.instrumentalness > 0.5) {
+        result.allVibes.find((each) => each.type === "Humbly Subtly")
+          ? result.allVibes
+              .find((each) => each.type === "Humbly Subtly")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Humbly Subtly", tracks: [track] });
+      }
+
+      //Long Ones
+      if (audioFeatures.duration_ms > 300000) {
+        result.allVibes.find((each) => each.type === "Ever so, Ever So")
+          ? result.allVibes
+              .find((each) => each.type === "Ever so, Ever So")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Ever so, Ever So", tracks: [track] });
+      }
+
+      //Live Songs = liveness + Acousticness
+      if (audioFeatures.liveness > 0.65 && audioFeatures.acousticness > 0.3) {
+        result.allVibes.find((each) => each.type === "Sumn Organic")
+          ? result.allVibes
+              .find((each) => each.type === "Sumn Organic")
+              ?.tracks.push(track)
+          : result.allVibes.push({ type: "Sumn Organic", tracks: [track] });
+      }
+
+      //Laid back coasting in the PM = valence(high-ish) + energy(mid-ish) + accousticness
+      if (
+        audioFeatures.valence < 0.7 &&
+        audioFeatures.energy < 0.6 &&
+        audioFeatures.acousticness > 0.4 &&
+        audioFeatures.tempo < 90 &&
+        audioFeatures.tempo > 80
+      ) {
+        result.allVibes.find((each) => each.type === "Coasting in the PM")
+          ? result.allVibes
+              .find((each) => each.type === "Coasting in the PM")
+              ?.tracks.push(track)
+          : result.allVibes.push({
+              type: "Coasting in the PM",
+              tracks: [track],
+            });
+      }
+
+      //Shake a leg = Danceability
+      //Heart break
+      //Bars/Poetry = Speechiness
     }
   });
 

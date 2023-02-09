@@ -1,27 +1,19 @@
-@import "../Styling/Breakpoints.scss";
+@import "./Breakpoints.scss";
 
 .PlaylistsPage {
   height: 90vh;
   width: 80%;
-  display: grid;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  grid-template-columns: repeat(4, 210px);
 
-  .playlist {
-    height: 210px;
-    width: 100%;
-    background-color: orange;
-    flex-direction: row;
-    display: flex;
-    flex-wrap: wrap;
+  @include breakpoint-mixin("laptop-small") {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(2, 320px);
+  }
 
-    .imageBlock {
-      width: 50%;
-      height: 50%;
-      background-color: black;
-      //   border: white 1px solid;
-    }
+  @include breakpoint-mixin("desktop") {
+    grid-template-columns: repeat(4, 320px);
   }
 }

@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 import "./Styling/PlaylistsPage.scss";
 import SpotifyWebApi from "spotify-web-api-js";
 import vibeSeperator, { resultTemplate } from "./Function/VibeSeperator";
-
+import { useNavigate } from "react-router-dom";
+import Playlist from "./Playlist";
+import { randomUUID } from "crypto";
 //interface PlaylistsPageProps {}
 
 const PlaylistsPage = () => {
@@ -11,6 +13,7 @@ const PlaylistsPage = () => {
   const [everyTrack, setEveryTrack] = useState<SpotifyApi.TrackObjectFull[]>(
     []
   );
+  const navigate = useNavigate();
 
   const [everyTrackLoaded, setEveryTrackLoaded] = useState(false);
   const [audioFeatures, setAudioFeatures] = useState<
@@ -30,6 +33,10 @@ const PlaylistsPage = () => {
       ampIndex
     );
     setSpotifyToken(accessToken);
+  };
+
+  window.onbeforeunload = function () {
+    navigate("/");
   };
 
   useEffect(() => {
@@ -132,7 +139,13 @@ const PlaylistsPage = () => {
 
   return (
     <div className="PlaylistsPage">
-      {seperatedVibes === undefined ? <h1>Loading</h1> : <h1>Loaded</h1>}
+      {seperatedVibes === undefined ? (
+        <h1>Loading</h1>
+      ) : (
+        seperatedVibes.allVibes.map((eachPlaylist, i) => (
+          <Playlist key={i} Playlist={eachPlaylist} />
+        ))
+      )}
     </div>
   );
 };

@@ -1,0 +1,82 @@
+@import "./Breakpoints.scss";
+
+.playlistHolder {
+  margin-top: 50px;
+
+  .albumCover {
+    height: 195px;
+    width: 195px;
+    background-color: orange;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    @include breakpoint-mixin("laptop-small") {
+      height: 210px;
+      width: 210px;
+    }
+
+    .imageBlock {
+      width: 50%;
+      height: 50%;
+      background-color: black;
+      //   border: white 1px solid;
+    }
+
+    .record {
+      position: relative;
+      height: 94%;
+      width: 100%;
+      top: -97%;
+      bottom: 3%;
+      border-radius: 50%;
+      z-index: -1;
+      background-color: black;
+      display: flex;
+      box-shadow: 7px 10px 5px rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      left: 50%;
+
+      .record__circle1 {
+        height: 80%;
+        width: 80%;
+        // background-color: yellow;
+        border-radius: 50%;
+        border: 0.5px solid rgba(255, 255, 255, 0.39);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .record__circle2 {
+          height: 60%;
+          width: 60%;
+          // background-color: yellow;
+          border-radius: 50%;
+          border: 0.5px solid rgba(255, 255, 255, 0.39);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .record__circle3 {
+            height: 40%;
+            width: 40%;
+            background-color: yellow;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .albumDescription {
+    h2 {
+      font-family: "PrimaryFont";
+    }
+    p {
+      font-family: "SecondaryFont";
+    }
+    // font-family: "SecondaryFont";
+  }
+}

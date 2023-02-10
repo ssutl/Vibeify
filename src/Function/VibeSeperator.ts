@@ -8,24 +8,12 @@ export type NameofVibes =
   | "Sumn Organic"
   | "Coasting in the PM";
 
-// export interface NameofVibes {
-//   // accousticness: SpotifyApi.TrackObjectFull[];
-//   // long: SpotifyApi.TrackObjectFull[];
-//   // energy: SpotifyApi.TrackObjectFull[];
-//   // instrumentalness: SpotifyApi.TrackObjectFull[];
-//   // // key: SpotifyApi.TrackObjectFull[];
-//   // liveness: SpotifyApi.TrackObjectFull[];
-//   // // loudness: SpotifyApi.TrackObjectFull[];
-//   // // mode: SpotifyApi.TrackObjectFull[];
-//   // speechiness: SpotifyApi.TrackObjectFull[];
-//   // // tempo: SpotifyApi.TrackObjectFull[];
-//   // // time_signature: SpotifyApi.TrackObjectFull[];
-//   // // valence: SpotifyApi.TrackObjectFull[];
-//   // danceability: SpotifyApi.TrackObjectFull[];
-// }
-
 export interface resultTemplate {
-  allVibes: { type: NameofVibes; tracks: SpotifyApi.TrackObjectFull[] }[];
+  allVibes: {
+    type: NameofVibes;
+    tracks: SpotifyApi.TrackObjectFull[];
+    desc?: string;
+  }[];
 }
 
 export default function vibeSeperator(
@@ -127,6 +115,43 @@ export default function vibeSeperator(
       //Shake a leg = Danceability
       //Heart break
       //Bars/Poetry = Speechiness
+    }
+  });
+
+  //Adding Description
+  result.allVibes.map((eachVibe) => {
+    switch (eachVibe.type) {
+      case "Coasting in the PM":
+        eachVibe.desc =
+          "For those late nights, gliding, laid back, coasting. Tune in y stay coasting.";
+        break;
+      case "Ever so, Ever So":
+        eachVibe.desc =
+          "For when the artist just keeps going, the interminable beats, the amorphous stories, when there's a lot to say but even more to take in.";
+        break;
+      case "Humbly Subtly":
+        eachVibe.desc =
+          "Sometimes the artist ain't even gotta say too much, the instrumental carries. It's all about those subtle samples, those humble melodies.";
+        break;
+      case "Keep Going":
+        eachVibe.desc =
+          "In the gym? On a mission? You gotta keep going. This one for the city runners, the bench pressers, move fast, stay low. This playlist will keep up.";
+        break;
+      case "Sumn Cognitive":
+        eachVibe.desc =
+          "Sumn deeper, sumn to think about, slower. Sometimes ion really wanna be talking to no one and just wanna deep stuff. That's fine fr.";
+        break;
+      case "Sumn Mellow":
+        eachVibe.desc = "For the city strollers, with the headphones on.";
+        break;
+      case "Sumn Organic":
+        eachVibe.desc =
+          "This one is strictly organic, live perfomances, accousticness y the rawest of sounds. Yhhhhh sumn real real.";
+        break;
+      case "Sumn Uplifting":
+        eachVibe.desc =
+          "You gotta wake up and expose yourself to the sun, reset your circadian rhythm by supplying your suprachiasmatic nucleus with information. Sumn Uplifting man.";
+        break;
     }
   });
 

@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <div className="header">
-        <h1>Splitify</h1>
+        <h1>Split-ify</h1>
       </div>
       <Router>
         <Routes>
@@ -16,6 +16,9 @@ function App() {
           <Route path="/Playlists" element={<PlaylistsPage />} />
         </Routes>
       </Router>
+      <div className="footer">
+        <p>ss.utl humblest of all time, ever</p>
+      </div>
     </div>
   );
 }

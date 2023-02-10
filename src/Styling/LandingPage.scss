@@ -1,8 +1,11 @@
 @import "../Styling/Breakpoints.scss";
 
 .LandingPage {
-  height: 90vh;
+  height: calc(85vh - 4px);
   width: 100%;
+  display: flex;
+  flex-direction: column;
+
   .description {
     height: 20vh;
     width: 100%;
@@ -20,7 +23,7 @@
   }
 
   .signIn {
-    height: 35vh;
+    height: 30vh;
     width: 100%;
     background-color: palegreen;
   }

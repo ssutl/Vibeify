@@ -1,11 +1,13 @@
 @import "./Breakpoints.scss";
 
 .PlaylistsPage {
-  height: 90vh;
+  min-height: 85vh;
   width: 80%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
 
   @include breakpoint-mixin("laptop-small") {
     display: grid;

@@ -3,7 +3,11 @@ import { NameofVibes, resultTemplate } from "./Function/VibeSeperator";
 import "./Styling/Playlist.scss";
 
 interface PlaylistProps {
-  Playlist: { type: NameofVibes; tracks: SpotifyApi.TrackObjectFull[] };
+  Playlist: {
+    type: NameofVibes;
+    tracks: SpotifyApi.TrackObjectFull[];
+    desc?: string;
+  };
 }
 
 const imageBlock = (tracks: SpotifyApi.TrackObjectFull[], index: number) => {
@@ -29,10 +33,7 @@ const Playlist = ({ Playlist }: PlaylistProps) => {
       </div>
       <div className="albumDescription">
         <h2>{Playlist.type}</h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-          praesentium reiciendis hic repellendus fugit voluptatum aut.
-        </p>
+        <p>{Playlist.desc}</p>
         <div className="createButton"></div>
       </div>
     </div>

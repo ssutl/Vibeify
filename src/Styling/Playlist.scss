@@ -3,6 +3,10 @@
 .playlistHolder {
   margin-top: 50px;
 
+  @include breakpoint-mixin("laptop-small") {
+    height: 45vh;
+  }
+
   .albumCover {
     height: 195px;
     width: 195px;
@@ -21,6 +25,8 @@
       width: 50%;
       height: 50%;
       background-color: black;
+      z-index: 1;
+
       //   border: white 1px solid;
     }
 
@@ -31,7 +37,6 @@
       top: -97%;
       bottom: 3%;
       border-radius: 50%;
-      z-index: -1;
       background-color: black;
       display: flex;
       box-shadow: 7px 10px 5px rgba(0, 0, 0, 0.5);

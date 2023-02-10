@@ -1,12 +1,6 @@
 @import "./Breakpoints.scss";
 
 .playlistHolder {
-  margin-top: 50px;
-
-  @include breakpoint-mixin("laptop-small") {
-    height: 45vh;
-  }
-
   .albumCover {
     height: 195px;
     width: 195px;
@@ -81,6 +75,23 @@
     }
     p {
       font-family: "SecondaryFont";
+    }
+
+    .createButton {
+      margin-top: 20px;
+      padding: 5px 10px 5px 10px;
+      width: fit-content;
+      border-radius: 3px;
+      background-color: #1db954;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      p {
+        font-size: 13px;
+      }
     }
     // font-family: "SecondaryFont";
   }

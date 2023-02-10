@@ -22,6 +22,8 @@ const PlaylistsPage = () => {
   const [audioFeaturesLoaded, setAudioFeaturesLoaded] = useState(false);
   const [completeArray, setCompleteArray] =
     useState<SpotifyApi.TrackObjectFull[]>();
+  const [userInfo, setUserInfo] =
+    useState<SpotifyApi.CurrentUsersProfileResponse>();
   const [seperatedVibes, setSeperatedVibes] = useState<resultTemplate>();
   const spotify = new SpotifyWebApi();
 
@@ -46,6 +48,10 @@ const PlaylistsPage = () => {
   useEffect(() => {
     if (spotifyToken) {
       spotify.setAccessToken(spotifyToken);
+
+      spotify.getMe().then((result) => {
+        setUserInfo(result);
+      });
 
       spotify.getUserPlaylists().then((playlists) => {
         const promises: any[] = [];
@@ -139,11 +145,11 @@ const PlaylistsPage = () => {
 
   return (
     <div className="PlaylistsPage">
-      {seperatedVibes === undefined ? (
+      {seperatedVibes === undefined || userInfo === undefined ? (
         <h1>Loading</h1>
       ) : (
         seperatedVibes.allVibes.map((eachPlaylist, i) => (
-          <Playlist key={i} Playlist={eachPlaylist} />
+          <Playlist key={i} Playlist={eachPlaylist} UserId={userInfo.id} />
         ))
       )}
     </div>

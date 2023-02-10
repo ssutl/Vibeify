@@ -3,16 +3,18 @@
 .PlaylistsPage {
   min-height: 85vh;
   width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: 30px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(1, 80%);
+  row-gap: 90px;
 
   @include breakpoint-mixin("laptop-small") {
+    align-items: start;
     display: grid;
     justify-content: space-between;
     grid-template-columns: repeat(2, 320px);
+    grid-template-rows: auto;
   }
 
   @include breakpoint-mixin("desktop") {

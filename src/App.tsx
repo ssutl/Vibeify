@@ -17,7 +17,13 @@ function App() {
         </Routes>
       </Router>
       <div className="footer">
-        <p>ss.utl humblest of all time, ever</p>
+        <p
+          onClick={() =>
+            window.open(`https://www.instagram.com/ss.utl/`, "_blank")
+          }
+        >
+          ss.utl humblest of all time, ever
+        </p>
       </div>
     </div>
   );

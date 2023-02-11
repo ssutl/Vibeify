@@ -1,4 +1,4 @@
-import SpotifyWebApi from "spotify-web-api-js";
+import SpotifyWebApi from "../spotify-web-api-js";
 import { PlaylistProps } from "../Playlist";
 import { Store } from "react-notifications-component";
 

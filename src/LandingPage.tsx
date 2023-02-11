@@ -5,14 +5,13 @@ import "./Styling/LandingPage.scss";
 
 const LandingPage = () => {
   const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
-  var redirect_uri = "http://localhost:3000/Playlists/";
+  const { REACT_APP_SPOTIFY_SCOPE } = process.env;
+  const { REACT_APP_SPOTIFY_REDIRECT } = process.env;
+
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
 
-  var scope =
-    "user-read-private user-read-email playlist-read-collaborative playlist-read-private playlist-modify-public playlist-modify-private";
-
-  var loginUrl = `https://accounts.spotify.com/authorize?&client_id=${REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=${scope}&response_type=token`;
+  var loginUrl = `https://accounts.spotify.com/authorize?&client_id=${REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${REACT_APP_SPOTIFY_REDIRECT}&scope=${REACT_APP_SPOTIFY_SCOPE}&response_type=token`;
 
   const randomAlbum = (i: number) => {
     const recordSvgs = [

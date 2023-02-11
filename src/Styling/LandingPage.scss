@@ -87,6 +87,11 @@
         @include breakpoint-mixin("laptop-small") {
           left: 55%;
         }
+
+        @include breakpoint-mixin("laptop-small") {
+          height: 195px;
+          width: 195px;
+        }
       }
     }
   }

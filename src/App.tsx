@@ -3,10 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./LandingPage";
 import PlaylistsPage from "./PlaylistsPage";
 import "./Styling/App.scss";
+import "react-notifications-component/dist/theme.css";
+import { ReactNotifications } from "react-notifications-component";
 
 function App() {
   return (
     <div className="App">
+      <ReactNotifications />
       <div className="header">
         <h1>Split-ify</h1>
       </div>

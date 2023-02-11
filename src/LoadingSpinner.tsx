@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import "./Styling/LoadingSpinner.scss";
 
 //interface LoadingSpinnerProps {}

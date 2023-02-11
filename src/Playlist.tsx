@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { playlistCreator } from "./Function/PlaylistCreation";
-import { NameofVibes, resultTemplate } from "./Function/VibeSeperator";
+import { NameofVibes } from "./Function/VibeSeperator";
 import "./Styling/Playlist.scss";
 
 export interface PlaylistProps {
@@ -27,6 +26,7 @@ const Playlist = ({ Playlist, UserId }: PlaylistProps) => {
         <img
           src={require(`./RecordSvg/${Playlist.type.replace(/\s/g, "")}.svg`)}
           className="record"
+          alt="album cover"
         />
       </div>
       <div className="albumDescription">

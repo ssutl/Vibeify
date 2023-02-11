@@ -1,11 +1,9 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./Styling/PlaylistsPage.scss";
 import SpotifyWebApi from "spotify-web-api-js";
 import vibeSeperator, { resultTemplate } from "./Function/VibeSeperator";
 import { useNavigate } from "react-router-dom";
 import Playlist from "./Playlist";
-import { randomUUID } from "crypto";
 import LoadingSpinner from "./LoadingSpinner";
 import ApiError from "./Function/ApiError";
 

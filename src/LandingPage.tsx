@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Styling/LandingPage.scss";
 
 //interface LandingPageProps {}
@@ -28,6 +28,7 @@ const LandingPage = () => {
         <img
           src={require(`./RecordSvg/${recordSvgs[i - 1]}.svg`)}
           className="record"
+          alt="album cover"
         />
       </div>
     );

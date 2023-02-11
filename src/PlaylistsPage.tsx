@@ -6,6 +6,9 @@ import vibeSeperator, { resultTemplate } from "./Function/VibeSeperator";
 import { useNavigate } from "react-router-dom";
 import Playlist from "./Playlist";
 import { randomUUID } from "crypto";
+import LoadingSpinner from "./LoadingSpinner";
+import ApiError from "./Function/ApiError";
+
 //interface PlaylistsPageProps {}
 
 const PlaylistsPage = () => {
@@ -37,10 +40,6 @@ const PlaylistsPage = () => {
     setSpotifyToken(accessToken);
   };
 
-  window.onbeforeunload = function () {
-    navigate("/");
-  };
-
   useEffect(() => {
     getTokenFromUrl();
   }, []);
@@ -60,6 +59,7 @@ const PlaylistsPage = () => {
         playlists.items
           .filter((eachPlaylist) => eachPlaylist.tracks.total !== 0)
           .map((eachPlaylist) => {
+            //Getting all songs in your playlist
             const totalTrackCount = eachPlaylist.tracks.total;
             let currentTrackCount = 0;
             while (currentTrackCount < totalTrackCount) {
@@ -82,10 +82,15 @@ const PlaylistsPage = () => {
             }
           });
 
-        Promise.all(promises).then(() => {
-          // All elements have been added to the everyTrack array
-          setEveryTrackLoaded(true);
-        });
+        Promise.all(promises)
+          .then(() => {
+            // All elements have been added to the everyTrack array
+            setEveryTrackLoaded(true);
+          })
+          .catch((error) => {
+            navigate("/");
+            ApiError();
+          });
       });
     }
   }, [spotifyToken]);
@@ -118,10 +123,15 @@ const PlaylistsPage = () => {
         }
       }
 
-      Promise.all(promises).then(() => {
-        // All elements have been added to the everyTrack array
-        setAudioFeaturesLoaded(true);
-      });
+      Promise.all(promises)
+        .then(() => {
+          // All elements have been added to the everyTrack array
+          setAudioFeaturesLoaded(true);
+        })
+        .catch(() => {
+          navigate("/");
+          ApiError();
+        });
     }
   }, [everyTrackLoaded]);
 
@@ -148,7 +158,7 @@ const PlaylistsPage = () => {
   return (
     <div className="PlaylistsPage">
       {seperatedVibes === undefined || userInfo === undefined ? (
-        <h1>Loading</h1>
+        <LoadingSpinner />
       ) : (
         seperatedVibes.allVibes
           .filter((eachVibe) => eachVibe.tracks.length > 5)

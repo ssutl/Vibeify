@@ -11,12 +11,17 @@ export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
     "Ok Ok, DSINPYO",
     "Check spotify G",
     "Stay Inspired, Sumn Casual",
-    "You gotta humble yourself and teach, it worked btw",
+    "First you gotta humble yourself, then you got to teach",
     "@ss.utl did this, that me, im him.",
     "Humility is the only antidote to shame",
     "Guru when your bredrin needs help, student when you do.",
     "If you don't do anything, look after yourself.",
     "This is not the answer, just a hint. You can't find the answer, the answer will find you, but only once you try to find it.",
+    "Skinny boy with da appetite",
+    "MR IAMNEXT",
+    "Point in my direction",
+    "None my boys wear northface puffers",
+    "None my girls wear slick bun + headphones + wind breaker",
   ];
 
   const titleMessages = [
@@ -30,6 +35,7 @@ export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
     "Good Job",
     "Tap in",
     "DSINPYO",
+    "Avoid Envy at all costs",
   ];
 
   //Create the playlist
@@ -60,7 +66,6 @@ export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
 
       Promise.all(promises).then(() => {
         // All elements have been added to the everyTrack array
-        console.log("worked");
         Store.addNotification({
           title:
             titleMessages[Math.floor(Math.random() * titleMessages.length)],
@@ -72,7 +77,7 @@ export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
           animationIn: ["animate__animated", "animate__fadeIn"],
           animationOut: ["animate__animated", "animate__fadeOut"],
           dismiss: {
-            duration: 5000,
+            duration: 5500,
             onScreen: true,
           },
         });

@@ -28,13 +28,6 @@ const Playlist = ({ Playlist, UserId }: PlaylistProps) => {
           src={require(`./RecordSvg/${Playlist.type.replace(/\s/g, "")}.svg`)}
           className="record"
         />
-        {/* <div className="record">
-          <div className="record__circle1">
-            <div className="record__circle2">
-              <div className="record__circle3"></div>
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="albumDescription">
         <h2>{Playlist.type}</h2>

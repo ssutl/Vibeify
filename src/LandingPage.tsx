@@ -5,14 +5,34 @@ import "./Styling/LandingPage.scss";
 
 const LandingPage = () => {
   const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
-  console.log("client_id", REACT_APP_SPOTIFY_CLIENT_ID);
   var redirect_uri = "http://localhost:3000/Playlists/";
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
 
   var scope =
     "user-read-private user-read-email playlist-read-collaborative playlist-read-private playlist-modify-public playlist-modify-private";
 
   var loginUrl = `https://accounts.spotify.com/authorize?&client_id=${REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=${scope}&response_type=token`;
 
+  const randomAlbum = (i: number) => {
+    const recordSvgs = [
+      "HumblySubtly",
+      "SumnMellow",
+      "CoastingInThePM",
+      "SumnCognitive",
+      // Add more files if needed
+    ];
+
+    return (
+      <div className="album" key={i}>
+        <img src={require(`./AlbumCoverPlaceHolders/${i}.png`)} />
+        <img
+          src={require(`./RecordSvg/${recordSvgs[i - 1]}.svg`)}
+          className="record"
+        />
+      </div>
+    );
+  };
   return (
     <div className="LandingPage">
       <div className="description">
@@ -24,7 +44,11 @@ const LandingPage = () => {
           on, stay expanding.
         </p>
       </div>
-      <div className="albumCoverRows"></div>
+      <div className="albumCoverRows">
+        {[...Array(screenWidth < 1024 ? 1 : 4)].map((s, i) =>
+          randomAlbum(i + 1)
+        )}
+      </div>
       <div className="signIn">
         <div
           className="button"

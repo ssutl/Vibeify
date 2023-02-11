@@ -4,9 +4,9 @@ export type NameofVibes =
   | "Keep Going"
   | "Sumn Cognitive"
   | "Humbly Subtly"
-  | "Ever so, Ever So"
+  | "Ever So, Ever So"
   | "Sumn Organic"
-  | "Coasting in the PM";
+  | "Coasting In The PM";
 
 export interface resultTemplate {
   allVibes: {
@@ -78,11 +78,11 @@ export default function vibeSeperator(
 
       //Long Ones
       if (audioFeatures.duration_ms > 300000) {
-        result.allVibes.find((each) => each.type === "Ever so, Ever So")
+        result.allVibes.find((each) => each.type === "Ever So, Ever So")
           ? result.allVibes
-              .find((each) => each.type === "Ever so, Ever So")
+              .find((each) => each.type === "Ever So, Ever So")
               ?.tracks.push(track)
-          : result.allVibes.push({ type: "Ever so, Ever So", tracks: [track] });
+          : result.allVibes.push({ type: "Ever So, Ever So", tracks: [track] });
       }
 
       //Live Songs = liveness + Acousticness
@@ -102,12 +102,12 @@ export default function vibeSeperator(
         audioFeatures.tempo < 90 &&
         audioFeatures.tempo > 80
       ) {
-        result.allVibes.find((each) => each.type === "Coasting in the PM")
+        result.allVibes.find((each) => each.type === "Coasting In The PM")
           ? result.allVibes
-              .find((each) => each.type === "Coasting in the PM")
+              .find((each) => each.type === "Coasting In The PM")
               ?.tracks.push(track)
           : result.allVibes.push({
-              type: "Coasting in the PM",
+              type: "Coasting In The PM",
               tracks: [track],
             });
       }
@@ -121,11 +121,11 @@ export default function vibeSeperator(
   //Adding Description
   result.allVibes.map((eachVibe) => {
     switch (eachVibe.type) {
-      case "Coasting in the PM":
+      case "Coasting In The PM":
         eachVibe.desc =
           "For those late nights, gliding, laid back, coasting. Tune in y stay coasting.";
         break;
-      case "Ever so, Ever So":
+      case "Ever So, Ever So":
         eachVibe.desc =
           "For when the artist just keeps going, the interminable beats, the amorphous stories, when there's a lot to say but even more to take in.";
         break;

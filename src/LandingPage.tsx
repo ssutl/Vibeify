@@ -4,20 +4,27 @@ import "./Styling/LandingPage.scss";
 //interface LandingPageProps {}
 
 const LandingPage = () => {
-  var client_id = "f6ce070a889e49bc832932bf1d85712e";
+  const { REACT_APP_SPOTIFY_CLIENT_ID } = process.env;
+  console.log("client_id", REACT_APP_SPOTIFY_CLIENT_ID);
   var redirect_uri = "http://localhost:3000/Playlists/";
 
   var scope =
     "user-read-private user-read-email playlist-read-collaborative playlist-read-private playlist-modify-public playlist-modify-private";
 
-  var loginUrl = `https://accounts.spotify.com/authorize?&client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&response_type=token`;
+  var loginUrl = `https://accounts.spotify.com/authorize?&client_id=${REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=${scope}&response_type=token`;
 
   return (
     <div className="LandingPage">
       <div className="description">
         <h2>Create Vibe Specific Playlists Fast</h2>
+        <p>
+          Collate your saved, liked and local songs into to seperate vibes
+          within seconds. Providing a needed structure to your spotify
+          playlists. This is just a kernel to expand upon, keep the headphones
+          on, stay expanding.
+        </p>
       </div>
-      <div className="albumCovers"></div>
+      <div className="albumCoverRows"></div>
       <div className="signIn">
         <div
           className="button"

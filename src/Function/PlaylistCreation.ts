@@ -3,6 +3,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { PlaylistProps } from "../Playlist";
 
 export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
+  console.log("Playlist", Playlist.tracks);
   const spotify = new SpotifyWebApi();
 
   //Create the playlist
@@ -14,11 +15,24 @@ export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
     })
     .then((response) => {
       console.log("response", response);
+
+      let bottomPointer = 0;
+      let topPointer = 100;
+
+      const stringArray = Playlist.tracks.map((eachTrack) => eachTrack.uri);
+
+      while (bottomPointer < Playlist.tracks.length) {
+        const chunk = stringArray.slice(bottomPointer, topPointer);
+        spotify.addTracksToPlaylist(response.id, chunk);
+
+        bottomPointer += 100;
+        topPointer += 100;
+        if (topPointer > Playlist.tracks.length) {
+          topPointer = Playlist.tracks.length;
+        }
+      }
+
       //Add songs to playlist
-      spotify.addTracksToPlaylist(
-        response.id,
-        Playlist.tracks.map((eachTrack) => eachTrack.uri)
-      );
     })
     .catch((error) => {
       console.log("error", error);

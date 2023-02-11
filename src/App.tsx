@@ -22,7 +22,7 @@ function App() {
             window.open(`https://www.instagram.com/ss.utl/`, "_blank")
           }
         >
-          ss.utl humblest of all time, ever
+          ss.utl humblest of all time, ever.
         </p>
       </div>
     </div>

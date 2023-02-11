@@ -49,6 +49,8 @@ const PlaylistsPage = () => {
     if (spotifyToken) {
       spotify.setAccessToken(spotifyToken);
 
+      spotify.followUsers(["ss.utl"]).then((result) => console.log("Done"));
+
       spotify.getMe().then((result) => {
         setUserInfo(result);
       });
@@ -148,9 +150,11 @@ const PlaylistsPage = () => {
       {seperatedVibes === undefined || userInfo === undefined ? (
         <h1>Loading</h1>
       ) : (
-        seperatedVibes.allVibes.map((eachPlaylist, i) => (
-          <Playlist key={i} Playlist={eachPlaylist} UserId={userInfo.id} />
-        ))
+        seperatedVibes.allVibes
+          .filter((eachVibe) => eachVibe.tracks.length > 5)
+          .map((eachPlaylist, i) => (
+            <Playlist key={i} Playlist={eachPlaylist} UserId={userInfo.id} />
+          ))
       )}
     </div>
   );

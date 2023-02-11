@@ -85,7 +85,7 @@ export const playlistCreator = ({ UserId, Playlist }: PlaylistProps) => {
       //Add songs to playlist
     })
     .catch((error) => {
-      console.log("error", error);
+      // console.log("error", error);
     });
 
   //Indicate playlist has been created

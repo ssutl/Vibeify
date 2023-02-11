@@ -1,0 +1,115 @@
+@import "./Breakpoints.scss";
+
+.playlistHolder {
+  .albumCover {
+    height: 195px;
+    width: 195px;
+    background-color: orange;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.25) -10px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+    @include breakpoint-mixin("laptop-small") {
+      height: 210px;
+      width: 210px;
+    }
+
+    .imageBlock {
+      width: 50%;
+      height: 50%;
+      background-color: black;
+      z-index: 1;
+
+      //   border: white 1px solid;
+    }
+
+    @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .record {
+      position: relative;
+      height: 185px;
+      width: 185px;
+      top: -97%;
+      bottom: 3%;
+      border-radius: 50%;
+      background-color: #181818;
+      display: flex;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 28px,
+        rgba(0, 0, 0, 0.22) 0px 12px 10px;
+
+      justify-content: center;
+      align-items: center;
+      left: 55%;
+      animation: spin 25s linear infinite;
+      transform-origin: center center;
+
+      // .record__circle1 {
+      //   height: 80%;
+      //   width: 80%;
+      //   // background-color: yellow;
+      //   border-radius: 50%;
+      //   border: 0.5px solid rgba(255, 255, 255, 0.39);
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+
+      //   .record__circle2 {
+      //     height: 60%;
+      //     width: 60%;
+      //     // background-color: yellow;
+      //     border-radius: 50%;
+      //     border: 0.5px solid rgba(255, 255, 255, 0.39);
+      //     display: flex;
+      //     justify-content: center;
+      //     align-items: center;
+
+      //     .record__circle3 {
+      //       height: 40%;
+      //       width: 40%;
+      //       background-color: yellow;
+      //       border-radius: 50%;
+      //     }
+      //   }
+      // }
+
+      @include breakpoint-mixin("laptop-small") {
+        height: 195px;
+        width: 195px;
+      }
+    }
+  }
+
+  .albumDescription {
+    h2 {
+      font-family: "PrimaryFont";
+    }
+    p {
+      font-family: "SecondaryFont";
+    }
+
+    .createButton {
+      margin-top: 20px;
+      padding: 5px 10px 5px 10px;
+      width: fit-content;
+      border-radius: 3px;
+      background-color: #1db954;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+    // font-family: "SecondaryFont";
+  }
+}

@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./LandingPage";
+import PlaylistsPage from "./PlaylistsPage";
+import "./Styling/App.scss";
+import "react-notifications-component/dist/theme.css";
+import { ReactNotifications } from "react-notifications-component";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <ReactNotifications />
+      <div className="header">
+        <h1>Split-ify</h1>
+      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/Playlists" element={<PlaylistsPage />} />
+        </Routes>
+      </Router>
+      <div className="footer">
+        <p
+          onClick={() =>
+            window.open(`https://www.instagram.com/ss.utl/`, "_blank")
+          }
         >
-          Learn React
-        </a>
-      </header>
+          ss.utl humblest of all time, ever.
+        </p>
+      </div>
     </div>
   );
 }

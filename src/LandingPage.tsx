@@ -38,10 +38,10 @@ const LandingPage = () => {
       <div className="description">
         <h2>Create Vibe Specific Playlists Fast</h2>
         <p>
-          Collate your saved, liked and local songs into to seperate vibes
-          within seconds. Providing a needed structure to your spotify
-          playlists. This is just a kernel to expand upon, keep the headphones
-          on, stay expanding.
+          Collate your saved, liked and local songs into seperate vibes within
+          seconds. Providing a needed structure to your spotify playlists. This
+          is just a kernel to expand upon, keep the headphones on, stay
+          expanding.
         </p>
       </div>
       <div className="albumCoverRows">
@@ -54,7 +54,7 @@ const LandingPage = () => {
           className="button"
           onClick={() => (window.location.href = loginUrl)}
         >
-          <p>Sign in with spotify</p>
+          <p>Sign in with Spotify</p>
         </div>
       </div>
     </div>

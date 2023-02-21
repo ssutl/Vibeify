@@ -12,10 +12,16 @@ export interface PlaylistProps {
 }
 
 const imageBlock = (tracks: SpotifyApi.TrackObjectFull[], index: number) => {
-  const randomURL =
-    tracks[Math.floor(Math.random() * tracks.length)].album.images[0].url;
+  const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
 
-  return <img key={index} src={randomURL} className="imageBlock"></img>;
+  return (
+    <img
+      key={index}
+      src={randomTrack.album.images[0].url}
+      className="imageBlock"
+      onClick={() => window.open(randomTrack.uri)}
+    ></img>
+  );
 };
 
 const Playlist = ({ Playlist, UserId }: PlaylistProps) => {
@@ -30,6 +36,7 @@ const Playlist = ({ Playlist, UserId }: PlaylistProps) => {
         />
       </div>
       <div className="albumDescription">
+        <img src={require("./SpotifyLogo/green.png")} id="spotify-logo" />
         <h2>{Playlist.type}</h2>
         <p>{Playlist.desc}</p>
         <div

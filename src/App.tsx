@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <ReactNotifications />
       <div className="header">
-        <h1>Split-ify</h1>
+        <h1>VIBEIFY</h1>
       </div>
       <Router>
         <Routes>

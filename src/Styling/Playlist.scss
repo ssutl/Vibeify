@@ -22,6 +22,7 @@
       height: 50%;
       background-color: black;
       z-index: 1;
+      cursor: pointer;
 
       //   border: white 1px solid;
     }
@@ -86,6 +87,10 @@
   }
 
   .albumDescription {
+    #spotify-logo {
+      width: 70px;
+    }
+
     h2 {
       font-family: "PrimaryFont";
     }

@@ -45,8 +45,8 @@ const LandingPage = () => {
         </p>
       </div>
       <div className="albumCoverRows">
-        {[...Array(screenWidth < 1024 ? 1 : 4)].map((s, i) =>
-          randomAlbum(i + 1)
+        {[...Array(screenWidth < 1024 ? 1 : screenWidth < 1800 ? 3 : 4)].map(
+          (s, i) => randomAlbum(i + 1)
         )}
       </div>
       <div className="signIn">

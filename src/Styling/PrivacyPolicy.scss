@@ -1,0 +1,35 @@
+@import "../Styling/Breakpoints.scss";
+
+.modal_holder {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  backdrop-filter: blur(3px) brightness(0.3);
+
+  .modal {
+    padding: 10px 20px 20px 20px;
+    max-width: 50%;
+    background-color: #1db954;
+    border-radius: 5px;
+    text-align: center;
+
+    h1 {
+      font-family: "PrimaryFont";
+    }
+
+    p {
+      margin-top: 15px;
+      font-family: "SecondaryFont";
+      font-size: 15px;
+    }
+
+    a {
+      color: white;
+    }
+  }
+}

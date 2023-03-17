@@ -21,3 +21,24 @@
     grid-template-columns: repeat(4, 320px);
   }
 }
+
+.logout {
+  height: 15vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  .button {
+    cursor: pointer;
+    padding: 15px 20px 15px 20px;
+    background-color: #f05023;
+    width: fit-content;
+    border-radius: 3px;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

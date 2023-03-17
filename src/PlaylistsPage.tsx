@@ -15,6 +15,7 @@ const PlaylistsPage = () => {
     []
   );
   const navigate = useNavigate();
+  const url = "https://accounts.spotify.com/en/logout";
 
   const [everyTrackLoaded, setEveryTrackLoaded] = useState(false);
   const [audioFeatures, setAudioFeatures] = useState<
@@ -154,17 +155,35 @@ const PlaylistsPage = () => {
   }, [completeArray]);
 
   return (
-    <div className="PlaylistsPage">
-      {seperatedVibes === undefined || userInfo === undefined ? (
-        <LoadingSpinner />
-      ) : (
-        seperatedVibes.allVibes
-          .filter((eachVibe) => eachVibe.tracks.length > 5)
-          .map((eachPlaylist, i) => (
-            <Playlist key={i} Playlist={eachPlaylist} UserId={userInfo.id} />
-          ))
-      )}
-    </div>
+    <>
+      <div className="PlaylistsPage">
+        {seperatedVibes === undefined || userInfo === undefined ? (
+          <LoadingSpinner />
+        ) : (
+          seperatedVibes.allVibes
+            .filter((eachVibe) => eachVibe.tracks.length > 5)
+            .map((eachPlaylist, i) => (
+              <Playlist key={i} Playlist={eachPlaylist} UserId={userInfo.id} />
+            ))
+        )}
+      </div>
+      <div className="logout">
+        <div
+          className="button"
+          onClick={() => {
+            const spotifyLogoutWindow = window.open(
+              url,
+              "Spotify Logout",
+              "width=700,height=500,top=40,left=40"
+            );
+            setTimeout(() => spotifyLogoutWindow!.close(), 2000);
+            navigate("/");
+          }}
+        >
+          Logout
+        </div>
+      </div>
+    </>
   );
 };
 

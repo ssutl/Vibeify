@@ -15,6 +15,10 @@ body {
   }
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "PrimaryFont";
   src: url("../../public/Resources/Inconsolata.otf") format("opentype");

@@ -23,8 +23,12 @@
     // background-color: orange;
 
     p {
-      font-size: 18px;
+      font-size: 15px;
       max-width: 80%;
+
+      @include breakpoint-mixin("laptop-small") {
+        font-size: 18px;
+      }
     }
   }
 

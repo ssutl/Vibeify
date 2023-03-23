@@ -24,15 +24,22 @@
 
 .logout {
   height: 15vh;
-  width: 100%;
+  width: 80%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: white;
+  // background-color: orange;
+
+  @include breakpoint-mixin("laptop-small") {
+    justify-content: center;
+  }
 
   .button {
+    font-family: "SecondaryFont";
     cursor: pointer;
-    padding: 15px 20px 15px 20px;
+    padding: 5px 10px 5px 10px;
+    // padding: 15px 20px 15px 20px;
     background-color: #f05023;
     width: fit-content;
     border-radius: 3px;

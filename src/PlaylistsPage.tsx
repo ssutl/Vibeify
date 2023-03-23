@@ -169,7 +169,7 @@ const PlaylistsPage = () => {
       </div>
       {seperatedVibes === undefined || userInfo === undefined ? null : (
         <div className="logout">
-          <div
+          <p
             className="button"
             onClick={() => {
               const spotifyLogoutWindow = window.open(
@@ -181,8 +181,8 @@ const PlaylistsPage = () => {
               navigate("/");
             }}
           >
-            Logout
-          </div>
+            Logout Vibeify
+          </p>
         </div>
       )}
     </>

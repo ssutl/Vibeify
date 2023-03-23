@@ -20,9 +20,10 @@
     @include breakpoint-mixin("laptop-small") {
       height: 30%;
     }
+    // background-color: orange;
 
     p {
-      font-size: 15px;
+      font-size: 18px;
       max-width: 80%;
     }
   }

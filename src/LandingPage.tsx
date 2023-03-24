@@ -9,7 +9,10 @@ const LandingPage = () => {
   const { REACT_APP_SPOTIFY_REDIRECT } = process.env;
 
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
   window.addEventListener("resize", () => setScreenWidth(window.innerWidth));
+  window.addEventListener("resize", () => setScreenHeight(window.innerHeight));
 
   var loginUrl = `https://accounts.spotify.com/authorize?&client_id=${REACT_APP_SPOTIFY_CLIENT_ID}&redirect_uri=${REACT_APP_SPOTIFY_REDIRECT}&scope=${REACT_APP_SPOTIFY_SCOPE}&response_type=token`;
 
@@ -33,22 +36,25 @@ const LandingPage = () => {
       </div>
     );
   };
+
   return (
     <div className="LandingPage">
       <div className="description">
         <h2>Create Vibe Specific Playlists Fast</h2>
         <p>
-          Collate your saved, liked and local songs into seperate vibes within
+          Seperate your saved, liked and local songs into seperate vibes within
           seconds. Providing a needed structure to your spotify playlists. This
           is just a kernel to expand upon, keep the headphones on, stay
           expanding.
         </p>
       </div>
-      <div className="albumCoverRows">
-        {[...Array(screenWidth < 1024 ? 1 : screenWidth < 1800 ? 3 : 4)].map(
-          (s, i) => randomAlbum(i + 1)
-        )}
-      </div>
+      {screenHeight < 568 ? null : (
+        <div className="albumCoverRows">
+          {[...Array(screenWidth < 1024 ? 1 : screenWidth < 1800 ? 3 : 4)].map(
+            (s, i) => randomAlbum(i + 1)
+          )}
+        </div>
+      )}
       <div className="signIn">
         <div
           className="button"

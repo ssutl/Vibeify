@@ -177,7 +177,7 @@ const PlaylistsPage = () => {
                 "Spotify Logout",
                 "width=700,height=500,top=40,left=40"
               );
-              setTimeout(() => spotifyLogoutWindow!.close(), 2000);
+              setTimeout(() => spotifyLogoutWindow!.close(), 1000);
               navigate("/");
             }}
           >

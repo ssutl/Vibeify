@@ -2,7 +2,7 @@
 
 This project was used to solve my disorganised spotify library. It reads through your current library and seperates the tracks by their vibe and sound, then adds the song to their respective playlist. The spotify API was leveraged to perform this.
 
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/76885270/227808948-494f5c6e-e0f4-4338-87f7-7769a22527be.png">
+![image](https://user-images.githubusercontent.com/76885270/227809003-0fc6ed22-50fc-4e93-8b3d-b7e6222d4691.png)
 
 # Technologies Used
 

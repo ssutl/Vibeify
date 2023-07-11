@@ -27,6 +27,20 @@
 
     p {
       cursor: pointer;
+
+      span {
+        color: #3a94b5;
+      }
+    }
+
+    #igIcon {
+      position: absolute;
+      left: 2%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     #privacyPolicy {

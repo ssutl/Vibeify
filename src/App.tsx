@@ -6,6 +6,7 @@ import "./Styling/App.scss";
 import "react-notifications-component/dist/theme.css";
 import { ReactNotifications } from "react-notifications-component";
 import PrivacyPolicy from "./PrivacyPolicy";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 function App() {
   const [displayPolicy, setDisplayPolicy] = useState(false);
@@ -27,6 +28,12 @@ function App() {
         </Routes>
       </Router>
       <div className="footer">
+        <InstagramIcon
+          id="igIcon"
+          onClick={() =>
+            window.open(`https://www.instagram.com/ss.utl/`, "_blank")
+          }
+        />
         <p
           onClick={() =>
             window.open(`https://www.instagram.com/ss.utl/`, "_blank")

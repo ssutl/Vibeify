@@ -22,6 +22,15 @@ A user allows permission to certain features of the API by login in through spot
 
 # How to run application<br/>
 
-### How to setup
+### Setup
 
-1. Crea
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard) and create a new app, ensure the redirect URI is `http://localhost:3000/Playlists/`.
+2. You can access your Client ID here.
+3. Create an `.env.local` file in the root directory.
+4. Add `REACT_APP_SPOTIFY_CLIENT_ID=Your spotify app key`
+5. Add `REACT_APP_SPOTIFY_SCOPE =user-read-private user-read-email user-library-read playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private user-modify-playback-state user-read-currently-playing user-read-playback-state user-read-recently-played`
+6. Add `REACT_APP_SPOTIFY_REDIRECT=http://localhost:3000/Playlists/`
+
+### Frontend
+1. `Run npm i` (to install needed dependencies)
+2. `npm run dev`

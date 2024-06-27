@@ -22,6 +22,6 @@ A user allows permission to certain features of the API by login in through spot
 
 # How to run application<br/>
 
-### Frontend
+### How to setup
 
-1. `npm start`
+1. Crea

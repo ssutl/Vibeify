@@ -4,7 +4,11 @@
 
 Vibeify organizes your Spotify library by analyzing the vibe and sound of each track and adding them to curated playlists. Leveraging the Spotify API, it provides an intuitive way to keep your music library sorted and accessible.
 
-[[![Vibeify Demo](https://github.com/user-attachments/assets/0ea4e476-b657-48df-93a0-ae00fd6971fa)](https://github.com/user-attachments/assets/0ea4e476-b657-48df-93a0-ae00fd6971fa)](https://github.com/user-attachments/assets/0ea4e476-b657-48df-93a0-ae00fd6971fa
+
+
+https://github.com/user-attachments/assets/4b6287c2-1548-4dd6-afea-dd93e0d508f0
+
+
 
 ![image](https://user-images.githubusercontent.com/76885270/227809003-0fc6ed22-50fc-4e93-8b3d-b7e6222d4691.png))
 
